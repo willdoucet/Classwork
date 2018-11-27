@@ -1,3 +1,6 @@
+SORRY FOR THE MESS -- LEARNED A LOT FROM THIS PROJECT THE NEXT ONE WILL BE BETTER
+
+
 Census Data.ipynb - initial gathering of census data
 
 Gmaps.ipynb - attempt to create zip code polygons in gmaps
