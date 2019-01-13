@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title></title>
+    <title>Windspeed</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css" />
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.html">Latitude</a>
+      <a class="navbar-brand" href="index.html"><span class="fa fa-cloud" aria-hidden="true" style="padding-right:5px"></span>Latitude</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,6 +35,49 @@
         </ul>
       </div>
     </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron jumbotron-fluid" style="text-align: center">
+            <div class="container">
+              <h1 class="display-4">Latitude vs. Wind Speed</h1>
+              <p class="lead"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 border-right border-secondary">
+          <img class="img-fluid w-100" src="images/windspeed.png"/>
+          <br><p>The data for wind speed shows higher speeds the further north you go.  This could be due to the fact that the northern hemisphere contains more land mass than the southern hemisphere, so that the effect on winds of the sun heating the earth's surface would be greater in the northern hemisphere.</p>
+        </div>
+          <div class="col-md-4">
+              <h4 class="text-center">Visualizations:</h4>
+              <div class="row justify-content-center">
+                  <div class="col-md-6 col-sm-6">
+                      <img class="img-fluid" src="images/maxtemp.png">
+                      <a href="maxtemp.html" class="btn btn-primary btn-sm btn-block" role="button">Max Temp</a>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                      <img class="img-fluid" src="images/humidity.png">
+                      <a href="humidity.html" class="btn btn-primary btn-sm btn-block" role="button">Humidity</a>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                      <img class="img-fluid" src="images/cloudiness.png">
+                      <a href="cloudiness.html" class="btn btn-primary btn-sm btn-block" role="button">Cloudiness</a>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                      <img class="img-fluid" src="images/windspeed.png">
+                      <a href="windspeed.html" class="btn btn-primary btn-sm btn-block" role="button">Wind Speed</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

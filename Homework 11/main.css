@@ -1,5 +1,8 @@
 @media only screen and (max-width : 768px) {
     nav.navbar.navbar-expand-md.navbar-dark.bg-dark {
     background-color: lightblue!important;
-  }
+    }
+    .border-right {
+        border:0px solid !important;
+    }
 }
