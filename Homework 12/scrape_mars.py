@@ -2,11 +2,7 @@ import pandas as pd
 from splinter import Browser
 from bs4 import BeautifulSoup
 import pymongo
-
-
-
-
-
+import requests
 
 
 
@@ -29,6 +25,12 @@ def scrape_article():
 
     article['title'] = soup.find("div", class_="content_title").get_text()
     article['p'] = soup.find("div", class_="article_teaser_body").get_text()
+
+    article_container = soup.find('div', class_='image_and_description_container')
+    article_href = article_container.find('a')
+    print(article_href['href'])
+    article['link'] =  f'https://mars.nasa.gov{article_href["href"]}'
+    print(article['link'])
     
     return article
 
@@ -49,25 +51,30 @@ def scrape_jpl():
     return image_dict
 
 def scrape_weather():
-    browser = init_browser()
+    #browser = init_browser()
     url = 'https://twitter.com/marswxreport?lang=en'
-    browser.visit(url)
+    #browser.visit(url)
+    html = requests.get(url)
+
+    #html = browser.html
+
+    soup = BeautifulSoup(html.text, "html.parser")
     
-    html = browser.html
-    soup = BeautifulSoup(html, "html.parser")
-    
-    url = 'https://twitter.com/marswxreport?lang=en'
-    browser.visit(url)
-    
-    html = browser.html
-    soup = BeautifulSoup(html, "html.parser")
     
     weather_scrape = soup.find("li", {"data-item-type": "tweet"})
     weather_content = weather_scrape.find("p", {"class": "TweetTextSize TweetTextSize--normal js-tweet-text tweet-text"})
     images_in_text = weather_scrape.find_all("a", class_="twitter-timeline-link u-hidden")
+    print(images_in_text)
     weather_text = weather_content.text
-    for image in images_in_text:
-        weather_text = weather_content.replace(image.text, '')
+    print(weather_text)
+    try:
+        for image in images_in_text:
+            print(image.text)
+            weather_text = weather_text.replace(image.text, '')
+            print(weather_text)
+
+    except:
+        print("no images in text")   
     
     weather_dict = {'info': weather_text}
 
