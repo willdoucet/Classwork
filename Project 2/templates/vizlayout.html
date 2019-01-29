@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{url_for('home')}}"><span class="fa fa-cloud" aria-hidden="true" style="padding-right:5px"></span>Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" id="viz-list">
+          <a class="nav-link" id="viz-link" href="" data-toggle="">Visualizations</a>
+          <div class="dropdown-menu d-md-block d-lg-none" id="#r_drop" style="background-color: transparent !important; border: 0px;">
+            <div class="dropdown-content d-md-block d-lg-none">
+            <a class="dropdown-item" href="#">test</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="data.html">Data</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="maxtemp.html">Max Temperature</a>
+            <a class="dropdown-item" href="humidity.html">Humidity</a>
+            <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+            <a class="dropdown-item" href="windspeed.html">Wind Speed</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown d-sm-block d-md-none">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">stuff</a>
+          <div class="dropdown-menu">
+            <a class="btn" href="#">test</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+      <div class="col-md-8 offset-md-2">
+        <div class="jumbotron border-bottom" style="text-align: left; margin-top:35px; background-color: white; padding-top: 20px; padding-bottom: 0px; padding-left: 0px; margin-bottom: 75px">
+          <div class="container">
+            <h1 class="display-4" style="padding-bottom: 0px; font-size: 2rem !important">{{title}}</h1>
+            <p class="lead"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="margin-bottom: 50px">
+    <div class="row flex-xl-nowrap">
+      <div class="col-md-2 float-right bd-sidebar">
+        <nav class="bd-links  border-right">
+            <div class="collapse show navbar-collapse">
+            <ul class="navbar-nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif;">
+                <a class="btn" href="{{url_for('visualizations')}}" style="font-size: 1.1rem !important;">Visualizations</a>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('labor_age')}}">Labor Force - Age</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('labor_gender')}}">Labor Force - Gender</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('unemployment_education')}}">Unemployment - Education</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('visualizations')}}">Visualizations</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+      </div>
+      <main class="col-md-8">
+          {%block content%}{%endblock%}
+      </main>
+      <div class="col-md-2 float-left bd-sidebar">
+          {%for source in data_sources%}
+            {%if source["id"] == unique_id%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Sources</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+          {%endfor%}
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='app.js')}}?newversionag"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  </body>
+</html>

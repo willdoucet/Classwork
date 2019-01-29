@@ -1,0 +1,19 @@
+@media only screen and (max-width : 768px) {
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark {
+    background-color: lightblue!important;
+    }
+    .border-right {
+        border:0px solid !important;
+    }
+}
+
+a.smaller-button {
+    font-size: .8rem !important;
+}
+
+p.vis-text{
+    padding-left: 200px !important;
+    padding-right: 200px !important;
+}
+
+/*.dropdown:hover .dropdown-content {display: block;}*/

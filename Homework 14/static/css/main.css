@@ -1,0 +1,9 @@
+.ufojumbo {
+    background-image: url("../images/nasa.jpg");
+}
+
+.jumbotron {  
+    background-size: auto% 100% !important; 
+    background-repeat: no-repeat;
+    min-height: 700px;
+}
