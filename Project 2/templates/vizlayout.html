@@ -8,6 +8,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lfa_data.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js')}}"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -19,30 +22,31 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item" id="viz-list">
           <a class="nav-link" id="viz-link" href="" data-toggle="">Visualizations</a>
-          <div class="dropdown-menu d-md-block d-lg-none" id="#r_drop" style="background-color: transparent !important; border: 0px;">
-            <div class="dropdown-content d-md-block d-lg-none">
-            <a class="dropdown-item" href="#">test</a>
+          <div class="dropdown-menu dropdown-menu-right" style="background-color: transparent !important; border: 0px;">
+            <div class="dropdown-content">
+              <a class="dropdown-item" href="{{url_for('labor_age')}}">Labor Force by Age</a>
+              <a class="dropdown-item" href="{{url_for('labor_gender')}}">Labor Force by Gender</a>
+              <a class="dropdown-item" href="{{url_for('unemployment_education')}}">Unemployment by Education</a>
+              <a class="dropdown-item" href="{{url_for('wages')}}">Wages vs. Benefits</a>
+              <a class="dropdown-item" href="{{url_for('vacancies')}}">Vacancies vs. Hires</a>
+              <a class="dropdown-item" href="{{url_for('earnings_b_t')}}">Bachelors Earnings - Top</a>
+              <a class="dropdown-item" href="{{url_for('earnings_b_b')}}">Bachelors Earnings - Bottom</a>
+              <a class="dropdown-item" href="{{url_for('earnings_m')}}">Masters Earnings</a>
+              <a class="dropdown-item" href="{{url_for('earnings_d')}}">PhD Earnings</a>
             </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="data.html">Data</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="maxtemp.html">Max Temperature</a>
-            <a class="dropdown-item" href="humidity.html">Humidity</a>
-            <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
-            <a class="dropdown-item" href="windspeed.html">Wind Speed</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown d-sm-block d-md-none">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">stuff</a>
-          <div class="dropdown-menu">
-            <a class="btn" href="#">test</a>
+        <li class="nav-item" id="data-list">
+          <a class="nav-link" id="data-link" href="" data-toggle="">Data</a>
+          <div class="dropdown-menu dropdown-menu-right" style="background-color: transparent !important; border: 0px;">
+            <div class="dropdown-content">
+              <a class="dropdown-item" href="{{url_for('data_page', _anchor='buttonOne')}}">Labor Force by Age</a>
+              <a class="dropdown-item" href="{{url_for('data_page', _anchor='buttonTwo')}}">Labor Force by Gender</a>
+              <a class="dropdown-item" href="{{url_for('data_page', _anchor='buttonThree')}}">Unemployment by Education</a>
+              <a class="dropdown-item" href="{{url_for('data_page', _anchor='buttonFour')}}">Wages vs. Benefits</a>
+              <a class="dropdown-item" href="{{url_for('data_page', _anchor='buttonFive')}}">Vacancies vs. Hires</a>
+              <a class="dropdown-item" href="{{url_for('data_page', _anchor='buttonSix')}}">Earnings</a>
+            </div>
           </div>
         </li>
       </ul>
@@ -77,7 +81,22 @@
                 <a class="btn smaller-button" href="{{url_for('unemployment_education')}}">Unemployment - Education</a>
               </li>
               <li>
-                <a class="btn smaller-button" href="{{url_for('visualizations')}}">Visualizations</a>
+                <a class="btn smaller-button" href="{{url_for('wages')}}">Wages vs. Benefits</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('vacancies')}}">Job Vacancies vs. Hires</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('earnings_b_t')}}">Earnings - Bachelor(top 20)</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('earnings_b_b')}}">Earnings - Bachelor(bottom 20)</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('earnings_m')}}">Earnings - Masters</a>
+              </li>
+              <li>
+                <a class="btn smaller-button" href="{{url_for('earnings_d')}}">Earnings - PhD</a>
               </li>
             </ul>
           </div>
@@ -106,7 +125,5 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='app.js')}}?newversionag"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
   </body>
 </html>

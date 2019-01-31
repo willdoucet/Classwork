@@ -28,16 +28,44 @@
         <div class="row">
             <div class="card-deck" style="justify-content: center; margin-top:50px">
                     <div class="card">
-                        <img src="{{url_for('static', filename='images/labor_age.png')}}" class="card-img-top"/>
-                        <p class="card-text">Labor Force Data by Age Group</p>
+                        <a href="{{url_for('wages')}}" class="btn">
+                        <img src="{{url_for('static', filename='images/Wage Salary Benefits.png')}}" class="card-img-top"/>
+                        <p class="card-text">Wages - Salary vs. Benefits</p>
+                        </a>
                     </div>
                     <div class="card">
-                        <img src="{{url_for('static', filename='images/Labor Force Men Women.png')}}" class="card-img-top"/>
-                        <p class="card-text">Labor Force Data by Gender</p>
+                        <a href="{{url_for('vacancies')}}" class="btn">
+                        <img src="{{url_for('static', filename='images/Job Vacancies.png')}}" class="card-img-top"/>
+                        <p class="card-text">Job Vacancies vs. Hires</p>
+                        </a>
                     </div>
                     <div class="card">
-                        <img src="{{url_for('static', filename='images/Unemployment by Level of Education.png')}}" class="card-img-top"/>
-                        <p class="card-text">Unemployment by Level of Education</p>
+                        <a href="{{url_for('earnings_b_t')}}" class="btn">
+                        <img src="{{url_for('static', filename='images/Earnings Bachelor Top 20.png')}}" class="card-img-top"/>
+                        <p class="card-text">Earnings by Degree - Bachelors (Top 20)</p>
+                        </a>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card-deck" style="justify-content: center; margin-top:50px">
+                    <div class="card">
+                        <a href="{{url_for('earnings_b_b')}}" class="btn">
+                        <img src="{{url_for('static', filename='images/Earnings Bachelor Bottom 20.png')}}" class="card-img-top"/>
+                        <p class="card-text">Earnings by Degree - Bachelors (Bottom 20)</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="{{url_for('earnings_m')}}" class="btn">
+                        <img src="{{url_for('static', filename='images/Earnings Masters.png')}}" class="card-img-top"/>
+                        <p class="card-text">Earnings by Degree - Masters</p>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="{{url_for('earnings_d')}}" class="btn">
+                        <img src="{{url_for('static', filename='images/Earnings PhD.png')}}" class="card-img-top"/>
+                        <p class="card-text">Earnings by Degree - Doctorate</p>
+                        </a>
                     </div>
             </div>
         </div>
