@@ -40,17 +40,36 @@
   margin: 0;
 }
 
-.d3-tip {
+.tooltip {
   padding: 6px;
   font-size: 12px;
   line-height: 1;
-  line-height: 1.5em;
+   line-height: 1.5em; 
   color: #fff;
   text-align: center;
   text-transform: capitalize;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
 }
+
+.tooltip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 10px;
+      width: 100%;
+      line-height: 1;
+      color: rgba(0, 0, 0, 0.8);
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+    }
+.tooltip.n:after {
+      margin: -2px 0 0 0;
+      top: 100%;
+      left: 0;
+    }
+
+  
 
 /* Mobile Rules */
 @media screen and (max-width: 530px) {
