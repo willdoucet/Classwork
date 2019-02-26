@@ -16,3 +16,5 @@ static/
   
  templates/
   - contains the html files used by Flask
+  
+ Project Overview can be found on the home page of the flask app
