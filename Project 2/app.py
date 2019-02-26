@@ -32,7 +32,7 @@ data_sources = [
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('index.html', title="Project Overview")
+    return render_template('index.html', title="Visualizing Economic Data", data_sources=data_sources)
 
 @app.route("/visualizations")
 def visualizations():

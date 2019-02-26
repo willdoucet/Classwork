@@ -2,7 +2,79 @@
 {%block content%}
 <div class="row">
   <div class="col-md-8 offset-2", style="text-align: left; font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;">
-    <p>Article stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuffArticle stuff</p>
+    <h4>Project Overview</h4>
+    <p>The purpose of this project was to collect economic data and visualize it in a way that would paint a picture of how major economic measures have changed over time.<br> <br>The project involved the use of:</p><br>
+    <ul>
+        <li>Python - To pull and organize the data</li>
+        <li>SQLite - To store the data</li>
+        <li>JavaScript - To run scripts for the site</li>
+        <li>Plotly Library - To visualize the data</li>
+        <li>Flask - To create the web application</li>
+    </ul><br>
+    <p>Grey vertical bars found in some of the graphs represent recession periods.</p>
+    <h4>Data</h4>
+    <p>Data was downloaded from the following sources:</p>
+        {%for source in data_sources%}
+            {%if source["id"] == "lfa"%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Labor Force Data - Age</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+            {%if source["id"] == "lfg"%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Labor Force Data - Gender</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+            {%if source["id"] == "une"%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Unemployment by Education</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+            {%if source["id"] == "wag"%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Wages</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+            {%if source["id"] == "job"%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Job Hires and Vacancies</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+            {%if source["id"] == "ear"%}
+              <h5 class="d-none d-lg-block" style="font-size: .9rem">Earnings Data</h5>
+              <ul class="nav bd-sidenav flex-column d-none d-lg-block" style="font-family: 'Roboto', sans-serif; font-size: .7rem">
+              {%for link in source["links"]%}
+                <li>
+                  <a href="{{link}}">{{link}}</a>
+                </li>
+              {%endfor%}
+            {%endif%}
+          {%endfor%}
+    <br><br>
+    <h4></h4>
+    <p></p>
+    <h4></h4>
+    <p></p>
   </div>
 </div>
 {%endblock%}
